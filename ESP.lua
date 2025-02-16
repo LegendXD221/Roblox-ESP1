@@ -38,7 +38,11 @@ local function createESP(player)
             textLabel.Parent = billboard
             textLabel.Size = UDim2.new(1, 0, 1, 0)
             textLabel.BackgroundTransparency = 1
-            textLabel.Text = player.Name
+
+            -- Format text properly
+            local formattedText = string.format("Player: %s", player.Name)
+            textLabel.Text = formattedText  -- Set formatted text
+
             textLabel.TextColor3 = Color3.new(1, 0, 0) -- Red text
             textLabel.TextStrokeTransparency = 0
             textLabel.TextStrokeColor3 = Color3.new(0, 0, 0) -- Black outline
@@ -54,4 +58,4 @@ for _, player in pairs(Players:GetPlayers()) do
 end
 
 -- Apply ESP to future players
-Players.PlayerAdded:Connect(createESP
+Players.PlayerAdded:Connect(createESP)
